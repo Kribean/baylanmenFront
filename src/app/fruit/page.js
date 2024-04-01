@@ -1,3 +1,4 @@
+import CardFruit from "@/components/CardFruit/CardFruit";
 import NavBar from "@/components/NavBar/NavBar";
 
 export default function FruitPage() {
@@ -21,6 +22,9 @@ export default function FruitPage() {
             />
           </svg>
         </label>
+      </div>
+      <div>
+        <CardFruit />
       </div>
     </main>
   );

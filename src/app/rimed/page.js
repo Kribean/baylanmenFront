@@ -1,6 +1,7 @@
 import { Sacramento } from "next/font/google";
 import PlantSection from "@/components/PlantSection/PlantSection";
 import NavBar from "@/components/NavBar/NavBar";
+import CardRimed from "@/components/CardRimed/CardRimed";
 const sacramento = Sacramento({ weight: ["400"], subsets: ["latin"] });
 
 export default function RimedPage() {
@@ -24,6 +25,9 @@ export default function RimedPage() {
             />
           </svg>
         </label>
+      </div>
+      <div>
+        <CardRimed />
       </div>
     </main>
   );
