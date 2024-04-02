@@ -55,7 +55,7 @@ export default function RimedPage() {
   }
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/rimed/", {
+    fetch("https://bramael.pythonanywhere.com/api/rimed/", {
       method: "GET",
       headers: {
         Accept: "application/json",

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function FruitPage() {
   const [fruitList, setFruitList] = useState([]);
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/fruit/", {
+    fetch("https://bramael.pythonanywhere.com/api/fruit/", {
       method: "GET",
       headers: {
         Accept: "application/json",
