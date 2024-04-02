@@ -1,7 +1,32 @@
+"use client";
 import CardFruit from "@/components/CardFruit/CardFruit";
 import NavBar from "@/components/NavBar/NavBar";
+import { useEffect, useState } from "react";
 
 export default function FruitPage() {
+  const [fruitList, setFruitList] = useState([]);
+  useEffect(() => {
+    fetch("https://bramael.pythonanywhere.com/api/fruit/", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => {
+        if (data.ok) {
+          return data.json();
+        }
+        throw new Error(" A mistake has been done");
+      })
+      .then((data) => {
+        console.log(data[0]);
+        setFruitList(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <main className="flex flex-col items-center w-full bg-[#1b625c] pb-4 relative">
       <NavBar />
@@ -24,7 +49,15 @@ export default function FruitPage() {
         </label>
       </div>
       <div>
-        <CardFruit />
+        <CardFruit
+          vernacularName={"verna"}
+          scientificName={"sientific"}
+          description={"kjhjjhj"}
+          habitat={""}
+          use={""}
+          precaution={""}
+          month={0}
+        />
       </div>
     </main>
   );

@@ -1,43 +1,39 @@
-export default function CardRimed() {
+export default function CardRimed(props) {
   return (
     <div className="card w-72 md:w-auto bg-[#f2d77c] text-sm m-4">
       <div className="card-body">
         <div className="">
-          <h2 className="card-title">Vernacular Name</h2>
-          <p>(Scientific Name)</p>
-          <p>Description: Small evergreen tree, native to tropical Americ</p>
+          <h2 className="card-title">{props.vernacularName}</h2>
+          <p>{"(" + props.scientificName + ")"}</p>
+          <p>Description: {props.description}</p>
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-wrap md:w-1/2">
-            <div className="badge badge-secondary m-1">gastro</div>
-            <div className="badge badge-secondary m-1">secondary1</div>
-            <div className="badge badge-secondary m-1">secondary2</div>
-            <div className="badge badge-secondary m-1">secondary3</div>
-            <div className="badge badge-secondary m-1">secondary4</div>
-            <div className="badge badge-secondary m-1">secondary1</div>
-            <div className="badge badge-secondary m-1">secondary2</div>
-            <div className="badge badge-secondary m-1">secondary3</div>
-            <div className="badge badge-secondary m-1">secondary4</div>
+            {props.listSickness.map((element, index) => (
+              <div key={index} className="badge badge-secondary m-1">
+                {element}
+              </div>
+            ))}
           </div>
-          <div className="flex flex-col md:w-1/2">
-            <div class="stats stats-vertical shadow">
-              <div class="stat">
-                <div class="stat-title">Efficacité</div>
-                <div class="stat-value">
-                  10 <span className="text-sm">/10</span>
+          <div className="flex flex-col md:w-auto">
+            <div className="stats stats-vertical shadow">
+              <div className="stat">
+                <div className="stat-title">Efficacité</div>
+                <div className="stat-value">
+                  {props.rateEff} <span className="text-sm">/10</span>
                 </div>
-                <div class="stat-desc">
+                <div className="stat-desc">
                   Consulter un <br />
                   spécialiste pour toute prise
                 </div>
               </div>
 
-              <div class="stat ">
-                <div class="stat-title">Toxicité</div>
-                <div class="stat-value">
-                  10 <span className="text-sm">/10</span>
+              <div className="stat ">
+                <div className="stat-title">Toxicité</div>
+                <div className="stat-value">
+                  {props.ratePois} <span className="text-sm">/10</span>
                 </div>
-                <div class="stat-desc">
+                <div className="stat-desc">
                   Consulter un <br />
                   spécialiste pour toute prise
                 </div>

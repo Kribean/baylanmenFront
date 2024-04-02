@@ -1,7 +1,9 @@
+"use client";
 import { Sacramento } from "next/font/google";
 import PlantSection from "@/components/PlantSection/PlantSection";
 import NavBar from "@/components/NavBar/NavBar";
 import CardRimed from "@/components/CardRimed/CardRimed";
+import ListSick from "@/components/ListSick/ListSick";
 const sacramento = Sacramento({ weight: ["400"], subsets: ["latin"] });
 
 export default function RimedPage() {
@@ -10,24 +12,25 @@ export default function RimedPage() {
       <NavBar />
       <h1 className="text-xl text-white font-bold">Rimèd Razié</h1>
       <div className="flex flex-col w-full gap-4 items-center justify-center">
-        <label className="input input-bordered flex items-center gap-2 w-1/2">
-          <input type="text" className="grow" placeholder="Rechercher..." />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="w-4 h-4 opacity-70"
-          >
-            <path
-              fillRule="evenodd"
-              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </label>
+        {/**<ListSick /> */}
       </div>
       <div>
-        <CardRimed />
+        <CardRimed
+          vernacularName={"verna"}
+          scientificName={"sientific"}
+          description={"kjhjjhj"}
+          listSickness={["ichi", "ni"]}
+          rateEff={0}
+          ratePois={0}
+        />
+        <CardRimed
+          vernacularName={"verna"}
+          scientificName={"sientific"}
+          description={"kjhjjhj"}
+          listSickness={["ichi", "ni", "kjhkjhkhkhjkh"]}
+          rateEff={0}
+          ratePois={0}
+        />
       </div>
     </main>
   );
