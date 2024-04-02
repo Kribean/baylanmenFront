@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function FruitPage() {
   const [fruitList, setFruitList] = useState([]);
   useEffect(() => {
-    fetch("https://bramael.pythonanywhere.com/api/fruit/", {
+    fetch("http://127.0.0.1:8000/api/fruit/", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -20,7 +20,6 @@ export default function FruitPage() {
         throw new Error(" A mistake has been done");
       })
       .then((data) => {
-        console.log(data[0]);
         setFruitList(data);
       })
       .catch((error) => {
@@ -32,7 +31,7 @@ export default function FruitPage() {
       <NavBar />
       <h1 className="text-xl text-white font-bold">Fwi</h1>
       <div className="flex flex-col w-full gap-4 items-center justify-center">
-        <label className="input input-bordered flex items-center gap-2 w-1/2">
+        {/**         <label className="input input-bordered flex items-center gap-2 w-1/2">
           <input type="text" className="grow" placeholder="Rechercher..." />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,18 +45,21 @@ export default function FruitPage() {
               clipRule="evenodd"
             />
           </svg>
-        </label>
+        </label>*/}
       </div>
-      <div>
-        <CardFruit
-          vernacularName={"verna"}
-          scientificName={"sientific"}
-          description={"kjhjjhj"}
-          habitat={""}
-          use={""}
-          precaution={""}
-          month={0}
-        />
+      <div className="flex flex-wrap w-full">
+        {fruitList.map((element, index) => (
+          <CardFruit
+            key={index}
+            vernacularName={element.nom_vernaculaire}
+            scientificName={element.nom_scientifique}
+            description={element.description_botanique}
+            habitat={element.habitat_et_distribution}
+            use={element.utilisations}
+            precaution={element.precautions}
+            month={element.mois_de_debut_de_fructification}
+          />
+        ))}
       </div>
     </main>
   );
